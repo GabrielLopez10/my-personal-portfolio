@@ -5,6 +5,7 @@ import path from 'path'
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
+import GithubSlugger from 'github-slugger'
 import {
   remarkExtractFrontmatter,
   remarkCodeTitles,
@@ -44,7 +45,6 @@ const computedFields: ComputedFields = {
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-const GithubSlugger = require('github-slugger')
 const slugger = new GithubSlugger()
 
 function createTagCount (allBlogs: any[]) {
@@ -54,7 +54,7 @@ function createTagCount (allBlogs: any[]) {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag: string) => {
         // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-        const BlogormattedTag = GithubSlugger.slug(tag)
+        const BlogormattedTag = slugger.slug(tag)
         if (BlogormattedTag in tagCount) {
           tagCount[BlogormattedTag] += 1
         } else {

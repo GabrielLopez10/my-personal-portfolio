@@ -1,3 +1,9 @@
 declare module 'github-slugger' {
-  function slug (string: string, maintainCase?: boolean): string
+  class GithubSlugger {
+    static slug (tag: string) {
+      throw new Error('Method not implemented.')
+    }
+    slug (string: string, maintainCase?: boolean): string
+  }
+  export = GithubSlugger
 }

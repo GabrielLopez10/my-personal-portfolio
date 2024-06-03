@@ -1,7 +1,6 @@
 import { defineDocumentType, type ComputedFields, makeSource } from 'contentlayer/source-files'
 import { writeFileSync } from 'fs'
 import readingTime from 'reading-time'
-import GithubSlugger from 'github-slugger'
 import path from 'path'
 // Remark packages
 import remarkGfm from 'remark-gfm'
@@ -20,7 +19,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import { type MDXDocumentDate, allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -45,16 +44,21 @@ const computedFields: ComputedFields = {
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-function createTagCount (allBlogs) {
+const GithubSlugger = require('github-slugger')
+const slugger = new GithubSlugger()
+
+function createTagCount (allBlogs: any[]) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (file.tags && (!isProduction || file.draft !== true)) {
-      file.tags.forEach((tag) => {
-        const fBlogormattedTag = GithubSlugger.slug(tag)
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1
+      file.tags.forEach((tag: string) => {
+        // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+        const BlogormattedTag = GithubSlugger.slug(tag)
+        if (BlogormattedTag in tagCount) {
+          tagCount[BlogormattedTag] += 1
         } else {
-          tagCount[formattedTag] = 1
+          tagCount[BlogormattedTag] = 1
         }
       })
     }
@@ -62,9 +66,10 @@ function createTagCount (allBlogs) {
   writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
 }
 
-function createSearchIndex (allBlogs) {
+function createSearchIndex (allBlogs: any[] | MDXDocumentDate[]) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
     writeFileSync(
@@ -101,9 +106,9 @@ export const Blog = defineDocumentType(() => ({
         '@type': 'BlogPosting',
         headline: doc.title,
         datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
+        dateModified: (doc.lastmod != null) || doc.date,
         description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+        image: (doc.images != null) ? doc.images[0] : siteMetadata.socialBanner,
         url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
         author: doc.authors
       })

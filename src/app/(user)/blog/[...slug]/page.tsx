@@ -121,7 +121,7 @@ export default async function Page ({ params }: { params: { slug: string[] } }) 
     }
   })
 
-  const Layout = layouts[post.layout || defaultLayout]
+  const Layout = layouts[defaultLayout]
 
   return (
     <>

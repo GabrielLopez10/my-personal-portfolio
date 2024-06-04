@@ -18,8 +18,8 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 999999 !important;
+  -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
-  background-color: #828da74f;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
   cursor: none !important;
 }
@@ -178,9 +178,12 @@ pre::-webkit-scrollbar {
 
 pre {
   -ms-overflow-style: none;
-  /* IE and Edge */
   scrollbar-width: none;
-  /* Firefox */
+
+  /* Safari */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .rehype-code-title {
@@ -222,6 +225,7 @@ input[type='email'] {
 
 table {
   display: block;
+  max-width: -moz-fit-content;
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;

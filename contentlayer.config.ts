@@ -5,7 +5,7 @@ import path from 'path'
 // Remark packages
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import GithubSlugger from 'github-slugger'
+import {slug} from 'github-slugger'
 import {
   remarkExtractFrontmatter,
   remarkCodeTitles,
@@ -45,7 +45,6 @@ const computedFields: ComputedFields = {
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-const slugger = new GithubSlugger()
 
 function createTagCount (allBlogs: any[]) {
   const tagCount: Record<string, number> = {}
@@ -54,16 +53,16 @@ function createTagCount (allBlogs: any[]) {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag: string) => {
         // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-        const BlogormattedTag = slugger.slug(tag)
-        if (BlogormattedTag in tagCount) {
-          tagCount[BlogormattedTag] += 1
+        const formattedTag = slug(tag)
+        if (formattedTag in tagCount) {
+          tagCount[formattedTag] += 1
         } else {
-          tagCount[BlogormattedTag] = 1
+          tagCount[formattedTag] = 1
         }
       })
     }
   })
-  writeFileSync('./app/tag-data.json', JSON.stringify(tagCount))
+  writeFileSync('./src/app/tag-data.json', JSON.stringify(tagCount))
 }
 
 function createSearchIndex (allBlogs: any[] | MDXDocumentDate[]) {

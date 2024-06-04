@@ -46,7 +46,7 @@
     ".contentlayer/generated",
     ".contentlayer/generated/**/*.json",
     ".next/types/**/*.ts"
-  ],
+, "postcss.config.js"  ],
   "exclude": [
     "node_modules"
   ]

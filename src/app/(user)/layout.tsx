@@ -59,25 +59,19 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       lang={siteMetadata.language}
       className={`${spaceGrotesk.variable} scroll-smooth`}
       suppressHydrationWarning
-
     >
-
       <body className='bg-gray-950 transition ease'>
-
         <Header />
 
         <main className='mb-auto'>
-
           <FlareCursor />
 
           {children}
-
         </main>
 
         <Footer />
-
       </body>
-    </html >
+    </html>
   )
 }
 

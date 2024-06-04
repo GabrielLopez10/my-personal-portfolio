@@ -72,7 +72,7 @@ module.exports = () => {
     experimental: {
       appDir: true
     },
-    async headers () {
+    async headers() {
       return [
         {
           source: '/(.*)',

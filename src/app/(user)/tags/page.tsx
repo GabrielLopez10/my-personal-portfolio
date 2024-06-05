@@ -4,6 +4,7 @@ import Tag from '../../../components/content/Tag'
 import { slug } from 'github-slugger'
 import tagData from '../../tag-data.json' assert { type: 'json' }
 import { genPageMetadata } from '../../seo'
+import { Github } from '@/components/icons/social-icons/icons'
 
 export const metadata = genPageMetadata({
   title: 'Tags',

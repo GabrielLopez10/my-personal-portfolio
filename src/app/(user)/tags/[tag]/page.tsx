@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/space-before-function-paren */
-import { slug } from 'github-slugger'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import siteMetadata from '../../../../../data/siteMetadata'
 import ListLayout from '../../blog/layouts/ListLayoutWithTags'
@@ -8,6 +7,7 @@ import { allBlogs } from '../../../../../.contentlayer/generated'
 import tagData from '../../../tag-data.json' assert { type: 'json' }
 import { genPageMetadata } from '../../../seo'
 import { type Metadata } from 'next'
+import { slug } from 'github-slugger'
 
 export async function generateMetadata ({
   params

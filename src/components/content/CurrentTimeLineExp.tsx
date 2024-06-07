@@ -9,23 +9,24 @@ const CurrentTimeLineExp = () => {
         <TimelineEvent.Title>
           Freelance | Mar. 2022 - Currently
         </TimelineEvent.Title>
-
         <TimelineEvent.Description>
-          <ul className='list-disc ms-3'>
-            <li>
-              Collaborate with designers to implement UI/UX designs and ensure a
-              seamless user experience.
-            </li>
-            <li>
-              Assist in building and maintaining backend services and APIs using
-              Node.js, Express, and MongoDB.
-            </li>
-            <li>
-              Stay up-to-date with industry trends and best practices in web
-              development and software engineering.
-            </li>
-            <li>Personal and training courses projects.</li>
-          </ul>
+          <p>
+            <ul className='list-disc ms-3'>
+              <li>
+                Collaborate with designers to implement UI/UX designs and ensure
+                a seamless user experience.
+              </li>
+              <li>
+                Assist in building and maintaining backend services and APIs
+                using Node.js, Express, and MongoDB.
+              </li>
+              <li>
+                Stay up-to-date with industry trends and best practices in web
+                development and software engineering.
+              </li>
+              <li>Personal and training courses projects.</li>
+            </ul>
+          </p>
         </TimelineEvent.Description>
       </TimelineEvent>
 

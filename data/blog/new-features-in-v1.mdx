@@ -5,6 +5,7 @@ lastmod: '2021-02-01'
 tags: ['next-js', 'tailwind', 'guide']
 draft: false
 summary: 'An overview of the new features released in v1 - code block copy, multiple authors, frontmatter layout and more'
+layout: PostSimple
 bibliography: references-data.bib
 ---
 
@@ -20,7 +21,7 @@ First load JS decreased from 43kB to 39kB despite all the new features added! [^
 
 See [upgrade guide](#upgrade-guide) below if you are migrating from v0 version of the template.
 
-## Theme colors
+## Theme color
 
 You can easily modify the theme color by changing the primary attribute in the tailwind config file:
 
@@ -44,7 +45,7 @@ Migrating from v1? You can revert to the previous theme by setting `primary` to 
 From v1.1.2+, you can also customize the style of your code blocks easily by modifying the `css/prism.css` stylesheet. Token classnames are compatible with prismjs
 so you can copy and adapt token styles from a prismjs stylesheet e.g. [prism themes](https://github.com/PrismJS/prism-themes).
 
-## Xdm MDX compiler
+## Xdm MDX compilers
 
 We switched the MDX bundler from [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) to [mdx-bundler](https://github.com/kentcdodds/mdx-bundler).
 This uses [xdm](https://github.com/wooorm/xdm) under the hood, the latest micromark 3 and remark, rehype libraries.
@@ -110,7 +111,7 @@ You can configure the template to take in other fields - see `PostLayout` compon
 
 Here's an example layout which you can further customise:
 
-```jsx
+```jsxPostSimple
 export default function ExampleLayout({ frontMatter, children }) {
   const { date, title } = frontMatter
 
@@ -383,8 +384,8 @@ Multiple citations [see @Nash1950; @Nash1951, page 50]
 
 is rendered to the following:
 
-Standard citation [@Nash1950]  
-In-text citations e.g. @Nash1951  
+Standard citation [@Nash1950]
+In-text citations e.g. @Nash1951
 Multiple citations [see @Nash1950; @Nash1951, page 50]
 
 **References:**

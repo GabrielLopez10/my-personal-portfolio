@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import { formatDate } from 'pliny/utils/formatDate'
 import { type CoreContent } from 'pliny/utils/contentlayer'
 import type { Blog } from '../../../../../.contentlayer/generated'
-import Link from '../../../../components/ui/Link'
+import Link from '../../../../components/Link'
 import Tag from '../../../../components/ui/Tag'
 import siteMetadata from '../../../../../data/siteMetadata'
 import tagData from '../../../tag-data.json' assert { type: 'json' }

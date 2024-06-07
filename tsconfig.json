@@ -29,6 +29,9 @@
       "@/*": [
         "*"
       ],
+      "@/components/*": ["components/*"],
+      "@/layouts/*": ["layouts/*"],
+      "@/css/*": ["css/*"],
     },
     "plugins": [
       {
@@ -48,6 +51,7 @@
     ".next/types/**/*.ts"
 , "postcss.config.js"  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }

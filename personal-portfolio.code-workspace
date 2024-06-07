@@ -9,6 +9,13 @@
 		"typescript.enablePromptUseWorkspaceTsdk": true,
 		"search.exclude": {
 			"**/node_modules": false
-		}
+		},
+		"cSpell.words": [
+			"customise",
+			"Pluggable",
+			"tsup",
+			"unrendered",
+			"Vercel"
+		]
 	}
 }

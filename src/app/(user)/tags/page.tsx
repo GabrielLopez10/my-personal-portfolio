@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/space-before-function-paren */
-import Link from '../../../components/ui/Link'
+import Link from '../../../components/Link'
 import Tag from '../../../components/content/Tag'
 import { slug } from 'github-slugger'
 import tagData from '../../tag-data.json' assert { type: 'json' }

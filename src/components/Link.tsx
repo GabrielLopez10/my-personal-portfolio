@@ -1,8 +1,14 @@
+/* eslint-disable @typescript-eslint/indent */
 import Link from 'next/link'
-import type { LinkProps } from 'next/link'
-import { type AnchorHTMLAttributes } from 'react'
+import type { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
 
-const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>) => {
+const CustomLink = ({
+  href,
+  ...rest
+}: DetailedHTMLProps<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+>) => {
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   const isInternalLink = href && href.startsWith('/')
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
@@ -10,7 +16,11 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
 
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (isInternalLink) {
-    return <Link href={href} {...rest} />
+    return (
+      <Link legacyBehavior href={href}>
+        <a {...rest} />
+      </Link>
+    )
   }
 
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
@@ -18,7 +28,7 @@ const CustomLink = ({ href, ...rest }: LinkProps & AnchorHTMLAttributes<HTMLAnch
     return <a href={href} {...rest} />
   }
 
-  return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />
+  return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />
 }
 
 export default CustomLink

@@ -35,7 +35,6 @@
     "next": "^13.5.6",
     "next-contentlayer": "0.3.4",
     "next-themes": "^0.2.1",
-    "pliny": "0.1.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reading-time": "1.5.0",
@@ -57,6 +56,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
     "@types/github-slugger": "^2.0.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/react": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
@@ -68,9 +68,11 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
     "github-slugger": "^2.0.0",
+    "pliny": "^0.2.1",
     "postcss": "^8.4.21",
     "postcss-preset-env": "^7.8.3",
     "ts-standard": "^12.0.2",
+    "tsup": "^8.1.0",
     "typescript": "^5.2.2"
   },
   "dev": "contentlayer dev & next dev"

@@ -23,6 +23,7 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import type { allBlogsProps } from '@/types/index'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -48,7 +49,7 @@ const computedFields: ComputedFields = {
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-function createTagCount (allBlogs) {
+function createTagCount (allBlogs: string[]) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
     if ((Boolean(file.tags)) && (!isProduction || file.draft !== true)) {

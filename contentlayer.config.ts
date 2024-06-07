@@ -23,7 +23,6 @@ import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
-import type { allBlogsProps } from '@/types/index'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -49,7 +48,14 @@ const computedFields: ComputedFields = {
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-function createTagCount (allBlogs: string[]) {
+
+interface File {
+  tags?: string[]
+  draft?: boolean
+  // other properties
+}
+
+function createTagCount (allBlogs: File[]) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
     if ((Boolean(file.tags)) && (!isProduction || file.draft !== true)) {
@@ -66,7 +72,7 @@ function createTagCount (allBlogs: string[]) {
   writeFileSync('./src/app/tag-data.json', JSON.stringify(tagCount))
 }
 
-function createSearchIndex (allBlogs) {
+function createSearchIndex (allBlogs: File[]) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions

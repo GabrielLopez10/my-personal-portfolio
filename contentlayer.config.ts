@@ -58,7 +58,7 @@ interface File {
 function createTagCount (allBlogs: File[]) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    if ((Boolean(file.tags)) && (!isProduction || file.draft !== true)) {
+    if (((file.tags?.length) != null) && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {

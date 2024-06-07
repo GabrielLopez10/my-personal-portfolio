@@ -51,8 +51,7 @@ const computedFields: ComputedFields = {
 function createTagCount (allBlogs) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (file.tags && (!isProduction || file.draft !== true)) {
+    if ((Boolean(file.tags)) && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {

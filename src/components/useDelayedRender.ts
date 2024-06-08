@@ -7,7 +7,7 @@ interface Options {
 }
 
 const useDelayedRender = (active: boolean = false, options: Options = {}) => {
-  const [, force] = useState<any>()
+  const [, force] = useState<unknown>()
   const mounted = useRef(active)
   const rendered = useRef(false)
   const renderTimer = useRef<NodeJS.Timeout | null>(null)
@@ -64,7 +64,7 @@ const useDelayedRender = (active: boolean = false, options: Options = {}) => {
 
   return {
     mounted: mounted.current,
-    rendered: rendered.current
+    rendered: rendered.current,
   }
 }
 

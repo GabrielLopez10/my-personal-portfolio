@@ -10,7 +10,7 @@ module.exports = {
     './src/pages/**/*.{js,ts,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,tsx}',
-    './src/layouts/**/*.{js,ts,tsx}'
+    './src/layouts/**/*.{js,ts,tsx}',
   ],
   theme: {
     extend: {
@@ -26,18 +26,18 @@ module.exports = {
           600: '#444444',
           700: '#333333',
           800: '#222222',
-          900: '#111010'
+          900: '#111010',
         },
-        primary: colors.pink
+        primary: colors.pink,
       },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
         13: '3.25rem',
-        14: '3.5rem'
+        14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans]
+        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       typography: (/** @type {(arg0: string) => any} */ theme) => ({
         DEFAULT: {
@@ -46,38 +46,37 @@ module.exports = {
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
-                color: theme('colors.blue.700')
+                color: theme('colors.blue.700'),
               },
-              code: { color: theme('colors.blue.400') }
+              code: { color: theme('colors.blue.400') },
             },
             'h2,h3,h4': {
-              'scroll-margin-top': spacing[32]
+              'scroll-margin-top': spacing[32],
             },
             thead: {
-              borderBottomColor: theme('colors.gray.200')
+              borderBottomColor: theme('colors.gray.200'),
             },
             code: { color: theme('colors.pink.500') },
             'blockquote p:first-of-type::before': false,
-            'blockquote p:last-of-type::after': false
-          }
+            'blockquote p:last-of-type::after': false,
+          },
         },
         invert: {
           css: {
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
-                color: `${theme('colors.primary.400')}`
+                color: `${theme('colors.primary.400')}`,
               },
-              code: { color: theme('colors.primary.400') }
+              code: { color: theme('colors.primary.400') },
             },
             'h1,h2,h3,h4,h5,h6': {
-              color: theme('colors.gray.100')
-            }
-          }
-        }
-      })
-    }
+              color: theme('colors.gray.100'),
+            },
+          },
+        },
+      }),
+    },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
-

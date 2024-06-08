@@ -3,51 +3,40 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   env: {
     browser: true,
-    es2021: true,
+    amd: true,
+    node: true,
     es6: true,
-    node: true
   },
-  settings: {
-    react: {
-      version: 'detect' // React version. 'detect' automatically detects the installed React version
-    }
-  },
+  plugins: ['@typescript-eslint'],
   extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended'
-  ],
-  overrides: [
-    {
-      env: {
-        node: true
-      },
-      files: [
-        '.eslintrc.{tsx,ts,js,cjs}'
-      ],
-      parserOptions: {
-        sourceType: 'script'
-      }
-    }
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:prettier/recommended',
+    'next',
+    'next/core-web-vitals',
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
     project: true,
-    tsconfigRootDir: __dirname
+    tsconfigRootDir: __dirname,
   },
-  plugins: [
-    'react'
-  ],
   rules: {
-    'prefer-const': 'error',
+    'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
-    "@typescript-eslint/explicit-function-return-type": "off",
-    'react/react-in-jsx-scope': 'off',
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
     'react/prop-types': 0,
     '@typescript-eslint/no-unused-vars': 0,
     'react/no-unescaped-entities': 0,
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-  }
+  },
 }

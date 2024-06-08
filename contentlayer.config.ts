@@ -41,24 +41,16 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.sourceFilePath
   },
-  // eslint-disable-next-line @typescript-eslint/promise-function-async
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) }
+  toc: { type: 'string', resolve: async (doc) => await extractTocHeadings(doc.body.raw) }
 }
 
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-
-interface File {
-  tags?: string[]
-  draft?: boolean
-  // other properties
-}
-
-function createTagCount (allBlogs: File[]) {
+function createTagCount (allBlogs) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    if (((file.tags?.length) != null) && (!isProduction || file.draft !== true)) {
+    if ((Boolean(file.tags)) && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
@@ -72,7 +64,7 @@ function createTagCount (allBlogs: File[]) {
   writeFileSync('./src/app/tag-data.json', JSON.stringify(tagCount))
 }
 
-function createSearchIndex (allBlogs: File[]) {
+function createSearchIndex (allBlogs) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
@@ -129,6 +121,7 @@ export const Authors = defineDocumentType(() => ({
     name: { type: 'string', required: true },
     avatar: { type: 'string' },
     occupation: { type: 'string' },
+
     company: { type: 'string' },
     email: { type: 'string' },
     twitter: { type: 'string' },
@@ -151,7 +144,7 @@ export default makeSource({
       remarkMath,
       remarkImgToJsx,
       remarkAlert
-    ],
+    ] as any,
     rehypePlugins: [
       rehypeSlug,
       [
@@ -162,12 +155,12 @@ export default makeSource({
             className: ['content-header']
           }
         }
-      ],
+      ] as any,
       rehypeKatex,
       [rehypeCitation, { path: path.join(root, 'data') }],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       rehypePresetMinify
-    ]
+    ] as any
   },
   onSuccess: async (importData) => {
     const { allBlogs } = await importData()

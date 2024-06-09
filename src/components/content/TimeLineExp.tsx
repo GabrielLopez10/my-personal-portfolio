@@ -4,11 +4,12 @@ import { type TimelineEventProps } from '../../types'
 
 export const Timeline = ({ children }: { children: React.ReactNode }) => {
   return (
-    <AnimationContainer customClassName='w-full mb-16'>
-      <h2 className='font-bold text-2xl tracking-tight mb-8 text-white text-center lg:text-start'>Experience</h2>
+    <AnimationContainer customClassName="w-full mb-16">
+      <h2 className="mb-8 text-center text-2xl font-bold tracking-tight text-white lg:text-start">
+        Experience
+      </h2>
 
       {children}
-
     </AnimationContainer>
   )
 }
@@ -16,39 +17,44 @@ export const Timeline = ({ children }: { children: React.ReactNode }) => {
 export const TimelineEvent = ({ active, children, last }: TimelineEventProps) => {
   return (
     <div
-      className={classNames('w-full flex justify-start gap-6 border-neutral-800', {
+      className={classNames('flex w-full justify-start gap-6 border-neutral-800', {
         'border-l': !(last ?? false),
-        'pb-16': !(last ?? false)
+        'pb-16': !(last ?? false),
       })}
     >
-      <div className='relative'>
+      <div className="relative">
         <div
           className={classNames(
-            'absolute top-[-2px] left-[-8.5px] w-4 h-4 rounded-full aspect-square outline-black',
+            'absolute left-[-8.5px] top-[-2px] aspect-square h-4 w-4 rounded-full outline-black',
             {
               'bg-emerald-500': active,
               'bg-neutral-800': !(active ?? false),
-              'w-3 h-3': !(active ?? false),
-              'left-[-5.5px]': !(active ?? false)
+              'h-3 w-3': !(active ?? false),
+              'left-[-5.5px]': !(active ?? false),
             }
           )}
         >
           {(active ?? false) && (
             <div
-              className={classNames('absolute top-0 left-0 rounded-full -z-10 w-4 bg-emerald-500 animate-ping aspect-square'
+              className={classNames(
+                'absolute left-0 top-0 -z-10 aspect-square w-4 animate-ping rounded-full bg-emerald-500'
               )}
             />
           )}
         </div>
-      </div >
-      <div className='mt-[-8px] flex flex-col gap-2'>{children}</div>
-    </div >
+      </div>
+      <div className="mt-[-8px] flex flex-col gap-2">{children}</div>
+    </div>
   )
 }
 
-const TimelineEventTitle = ({ children }: { children: React.ReactNode }) => <p className='text-base text-gray-400'>{children}</p>
+const TimelineEventTitle = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-base text-gray-400">{children}</p>
+)
 
-const TimelineEventDescription = ({ children }: { children: React.ReactNode }) => <p className='text-sm text-gray-400'>{children}</p>
+const TimelineEventDescription = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-sm text-gray-400">{children}</p>
+)
 
 TimelineEvent.Title = TimelineEventTitle
 

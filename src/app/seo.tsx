@@ -19,15 +19,15 @@ export function genPageMetadata({ title, description, image, ...rest }: PageSEOP
       description: description ?? siteMetadata.description,
       url: './',
       siteName: siteMetadata.title,
-      images: (image != null) ? [image] : [siteMetadata.socialBanner],
+      images: image != null ? [image] : [siteMetadata.socialBanner],
       locale: 'en_US',
-      type: 'website'
+      type: 'website',
     },
     twitter: {
       title: `${title} | ${siteMetadata.title}`,
       card: 'summary_large_image',
-      images: (image != null) ? [image] : [siteMetadata.socialBanner]
+      images: image != null ? [image] : [siteMetadata.socialBanner],
     },
-    ...rest
+    ...rest,
   }
 }

@@ -17,17 +17,15 @@ export default function Blog() {
   )
   const pagination = {
     currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE)
+    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
 
   return (
-
     <ListLayout
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
       title="All Posts"
     />
-
   )
 }

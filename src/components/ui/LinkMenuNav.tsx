@@ -4,23 +4,23 @@ const LinksMenu = [
   {
     name: 'Home',
     path: '/',
-    delay: '150ms'
+    delay: '150ms',
   },
   {
     name: 'About',
     path: '/about',
-    delay: '175ms'
+    delay: '175ms',
   },
   {
     name: 'Projects',
     path: '/projects',
-    delay: '200ms'
+    delay: '200ms',
   },
   {
     name: 'Blog',
     path: '/blog',
-    delay: '225ms'
-  }
+    delay: '225ms',
+  },
 ]
 
 const LinksMenuNav = () => {
@@ -29,10 +29,10 @@ const LinksMenuNav = () => {
       {LinksMenu.map(({ name, path, delay }) => (
         <li
           key={name}
-          className='border-gray-700 text-gray-100 text-sm font-semibold'
+          className="border-gray-700 text-sm font-semibold text-gray-100"
           style={{ transitionDelay: delay }}
         >
-          <Link href={path} className='pb-4'>
+          <Link href={path} className="pb-4">
             {name}
           </Link>
         </li>

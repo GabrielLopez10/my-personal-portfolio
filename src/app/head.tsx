@@ -10,18 +10,20 @@ const Head = () => {
 
   const meta = {
     title: `Gabriel Lopez ${pathname === '/' ? '' : '. ' + titleFixedToShow}`,
-    description: 'Hi! My name is Gabriel Lopez, I\'m a software developer and this is my personal portfolio.',
-    keywords: 'Gabriel Lopez, Gabriel Lopez portfolio, Gabriel Lopez portfolio, Gabriel Lopez github, Gabriel Lopez Linkedin, Web, Frontend Developer, Backend Developer, CSS, HTML, JavaScript, Python',
-    type: 'website'
+    description:
+      "Hi! My name is Gabriel Lopez, I'm a software developer and this is my personal portfolio.",
+    keywords:
+      'Gabriel Lopez, Gabriel Lopez portfolio, Gabriel Lopez portfolio, Gabriel Lopez github, Gabriel Lopez Linkedin, Web, Frontend Developer, Backend Developer, CSS, HTML, JavaScript, Python',
+    type: 'website',
   }
 
   return (
     <>
       <title>{meta.title}</title>
-      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-      <meta name='robots' content='follow, index' />
-      <meta content={meta.description} name='description' />
-      <meta name='keywords' content={meta.keywords} />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="robots" content="follow, index" />
+      <meta content={meta.description} name="description" />
+      <meta name="keywords" content={meta.keywords} />
     </>
   )
 }

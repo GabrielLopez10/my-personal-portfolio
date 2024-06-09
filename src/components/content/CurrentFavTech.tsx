@@ -3,8 +3,8 @@ import AnimationContainer from '../utils/AnimationContainer'
 
 const CurrentFavTech = () => {
   return (
-    <AnimationContainer customClassName='flex flex-col justify-center items-center lg:items-start mb-5 mx-auto lg:mx-0 sm:-mt-20'>
-      <div className='flex flex-col justify-center items-center lg:items-start'>
+    <AnimationContainer customClassName="flex flex-col justify-center items-center lg:items-start mb-5 mx-auto lg:mx-0 sm:-mt-20">
+      <div className="flex flex-col items-center justify-center lg:items-start">
         <AllFavTechs />
       </div>
     </AnimationContainer>

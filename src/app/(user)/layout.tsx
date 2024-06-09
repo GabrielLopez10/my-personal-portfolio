@@ -10,14 +10,14 @@ import { type Metadata } from 'next'
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-space-grotesk'
+  variable: '--font-space-grotesk',
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     default: siteMetadata.title,
-    template: `%s | ${siteMetadata.title}`
+    template: `%s | ${siteMetadata.title}`,
   },
   description: siteMetadata.description,
   openGraph: {
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     siteName: siteMetadata.title,
     images: [siteMetadata.socialBanner],
     locale: 'en_US',
-    type: 'website'
+    type: 'website',
   },
   alternates: {
     canonical: './',
     types: {
-      'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`
-    }
+      'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
+    },
   },
   robots: {
     index: true,
@@ -43,27 +43,27 @@ export const metadata: Metadata = {
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1
-    }
+      'max-snippet': -1,
+    },
   },
   twitter: {
     title: siteMetadata.title,
     card: 'summary_large_image',
-    images: [siteMetadata.socialBanner]
-  }
+    images: [siteMetadata.socialBanner],
+  },
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang={siteMetadata.language}
-      className={`${spaceGrotesk.variable} scroll-smooth`}
+      className={`${spaceGrotesk.variable} scroll-smooth `}
       suppressHydrationWarning
     >
-      <body className='bg-gray-950 transition ease'>
+      <body className="ease bg-gray-950 transition">
         <Header />
 
-        <main className='mb-auto'>
+        <main className="mb-auto">
           <FlareCursor />
 
           {children}

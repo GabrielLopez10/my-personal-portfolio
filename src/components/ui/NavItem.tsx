@@ -13,34 +13,34 @@ const NavItem = () => {
     <>
       {
         // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-        navItemsSelected[pathname]
-          ? (
-            <>
-              <div className='hidden lg:block'>
-                <motion.div
-                  className='absolute bg-neutral-800 h-[34px] rounded-md z-[-1]'
-                  layoutId='test2'
-                  initial={{ opacity: 0, x: navItemsSelected[pathname].x, y: navItemsSelected[pathname].y }}
-                  animate={{
-                    opacity: 1,
-                    x: navItemsSelected[pathname].x,
-                    width: navItemsSelected[pathname].w
-                  }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 350,
-                    damping: 30
-                  }}
-                />
-              </div>
-            </>
-            // eslint-disable-next-line @typescript-eslint/indent
-          )
-          : null}
-
-      {
-        <LinksNav />
+        navItemsSelected[pathname] ? (
+          <>
+            <div className="hidden lg:block">
+              <motion.div
+                className="absolute z-[-1] h-[34px] rounded-md bg-neutral-800"
+                layoutId="test2"
+                initial={{
+                  opacity: 0,
+                  x: navItemsSelected[pathname].x,
+                  y: navItemsSelected[pathname].y,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: navItemsSelected[pathname].x,
+                  width: navItemsSelected[pathname].w,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 350,
+                  damping: 30,
+                }}
+              />
+            </div>
+          </>
+        ) : // eslint-disable-next-line @typescript-eslint/indent
+        null
       }
+      {<LinksNav />}
     </>
   )
 }

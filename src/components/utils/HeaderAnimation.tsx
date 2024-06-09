@@ -7,8 +7,8 @@ const animation = {
   hide: { y: -8, opacity: 0 },
   show: {
     y: 0,
-    opacity: 1
-  }
+    opacity: 1,
+  },
 }
 
 const HeaderAnimation = ({ children }: { children: React.ReactNode }) => {
@@ -19,8 +19,8 @@ const HeaderAnimation = ({ children }: { children: React.ReactNode }) => {
   return (
     <motion.header
       className={classNames(
-        scrollPosition > 0 ? 'backdrop-blur-md bg-black/20' : '',
-        'w-full sticky top-0 flex flex-col justify-center items-center z-10 trasition ease-in-out mx-auto'
+        scrollPosition > 0 ? 'bg-black/20 backdrop-blur-md' : '',
+        'sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center transition ease-in-out'
       )}
       initial={animation.hide}
       animate={animation.show}
@@ -28,7 +28,6 @@ const HeaderAnimation = ({ children }: { children: React.ReactNode }) => {
     >
       {children}
     </motion.header>
-
   )
 }
 

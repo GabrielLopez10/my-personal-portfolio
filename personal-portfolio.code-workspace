@@ -11,9 +11,17 @@
 			"**/node_modules": false
 		},
 		"cSpell.words": [
+			"Astro",
 			"blockquote",
 			"customise",
+			"Gixfy",
+			"Mapbox",
+			"Pelis",
+			"picsum",
 			"Pluggable",
+			"Pokeapi",
+			"Pokedex",
+			"tabler",
 			"tsup",
 			"unrendered",
 			"Vercel"

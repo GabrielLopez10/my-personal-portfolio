@@ -7,6 +7,7 @@ const FlareCursor = () => {
 
   const [isPointer, setIsPointer] = useState(false)
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleMouseMove = (e: any) => {
     setPosition({ x: e.clientX, y: e.clientY })
 
@@ -18,7 +19,9 @@ const FlareCursor = () => {
   useEffect(() => {
     window.addEventListener('mousemove', handleMouseMove)
 
-    return () => { window.removeEventListener('mousemove', handleMouseMove) }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
   }, [])
 
   const flareSize = isPointer ? 0 : 30
@@ -33,10 +36,9 @@ const FlareCursor = () => {
         left: `${position.x}px`,
         top: `${position.y}px`,
         width: `${flareSize}px`,
-        height: `${flareSize}px`
-
+        height: `${flareSize}px`,
       }}
-    ></div >
+    ></div>
   )
 }
 

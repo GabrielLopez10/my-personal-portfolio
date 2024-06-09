@@ -8,26 +8,26 @@ export const navItemsSelected: Record<string, NavItemHeaderAnimation> = {
     name: 'home',
     x: 1,
     y: -3,
-    w: '60px'
+    w: '60px',
   },
   '/about': {
     name: 'about',
     x: 65,
     y: -3,
-    w: '61px'
+    w: '61px',
   },
   '/projects': {
     name: 'projects',
     x: 130,
     y: -3,
-    w: '82px'
+    w: '82px',
   },
   '/blog': {
     name: 'blog',
     x: 216,
     y: -3,
-    w: '50px'
-  }
+    w: '50px',
+  },
 }
 
 const LinksNav = () => {
@@ -42,10 +42,10 @@ const LinksNav = () => {
             key={path}
             href={path}
             className={clsx(
-              'hidden lg:inline-block transition ease hover:text-neutral-200 py-[2px] px-[10px]',
+              'ease hidden px-[10px] py-[2px] transition hover:text-neutral-200 lg:inline-block',
               {
                 'text-neutral-500': !isActive,
-                'font-bold': isActive
+                'font-bold': isActive,
               }
             )}
           >

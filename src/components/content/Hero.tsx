@@ -30,7 +30,7 @@ const Hero = () => {
         />
         <div className="mt-10 flex flex-col-reverse items-center justify-between lg:mx-5 lg:flex-row">
           <a
-            href="https://media.licdn.com/dms/document/media/D4D2DAQEqHzqfFiMzrg/profile-treasury-document-pdf-analyzed/0/1716855663581?e=1718236800&v=beta&t=0-9SJkazjJ6Gm6hMZFfa6tj5QjvKgNvp4-and4jalfc"
+            href="https://res.cloudinary.com/dfzw74nlk/image/upload/f_auto,q_auto/ofpmtfbzdjsxx7f8nmzd"
             className="group relative inline-block text-lg"
             target="_blank"
             rel="noopener noreferrer"

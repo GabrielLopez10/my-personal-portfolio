@@ -30,7 +30,7 @@ const Hero = () => {
         />
         <div className="mt-10 flex flex-col-reverse items-center justify-between lg:mx-5 lg:flex-row">
           <a
-            href="https://res.cloudinary.com/dfzw74nlk/image/upload/f_auto,q_auto/ofpmtfbzdjsxx7f8nmzd"
+            href="https://res.cloudinary.com/dfzw74nlk/raw/upload/v1719093648/qhzsdvw0ciqvfh72k9jd.pdf"
             className="group relative inline-block text-lg"
             target="_blank"
             rel="noopener noreferrer"

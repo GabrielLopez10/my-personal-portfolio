@@ -1,8 +1,6 @@
-// @ts-check
-const { spacing, fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
-/** @type {import("tailwindcss/types").Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
     './node_modules/pliny/**/*.js',
@@ -36,8 +34,11 @@ module.exports = {
         13: '3.25rem',
         14: '3.5rem',
       },
-      fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+       fontFamily: {
+        sans: ['var(--font-space-grotesk)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      spacing: {
+        32: '8rem',
       },
       typography: (/** @type {(arg0: string) => any} */ theme) => ({
         DEFAULT: {

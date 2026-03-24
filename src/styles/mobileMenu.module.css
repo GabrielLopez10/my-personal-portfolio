@@ -1,3 +1,5 @@
+@reference "../styles/mobileMenu.module.css";
+
 .burger {
   transition: opacity 300ms ease;
   border: 0;

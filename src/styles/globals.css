@@ -65,7 +65,6 @@
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    @apply bg-opacity-100;
   }
 }
 

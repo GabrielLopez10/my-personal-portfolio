@@ -4,14 +4,14 @@
  * by copying from a prismjs compatible theme:
  * https://github.com/PrismJS/prism-themes
  */
-
+@reference "./globals.css";
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t bg-gray-700 dark:bg-gray-800 px-5 py-3 font-mono text-sm font-bold text-gray-200;
+  @apply rounded-t-sm bg-gray-700 dark:bg-gray-800 px-5 py-3 font-mono text-sm font-bold text-gray-200;
 }
 
 .remark-code-title+div>pre {
-  @apply mt-0 rounded-t-none;
+  @apply mt-0 rounded-t-sm-none;
 }
 
 /* Code block styles */
